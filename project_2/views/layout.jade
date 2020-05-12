@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        title #{title} | Express Web
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible" content="IE-edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+
+    body
+        .container
+            li(class=(title === 'Home' ? 'active' : ''))
+                a(href="/") Home
+            li(class=(title === 'About' ? 'active' : ''))
+                a(href="/about") About
+            li(class=(title === 'Contact' ? 'active' : ''))
+                a(href="/contact") Contact
+
+    block content
+
+    footer
+        p.text-center &copy; 2020 MJ
+
+        script(src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.1/d3.min.js")
+        script(src="/javascripts/bootstrap.min.js")
