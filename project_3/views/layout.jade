@@ -1,0 +1,38 @@
+doctype html
+html
+    head
+        title #{title} | NodeAuth
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+
+    body
+        nav.navbar
+            .container
+                a.navbar-brand(href="/") NodeAuth
+                ul.nav.navbar-nav
+                    li(class=(title === 'Members') ? 'active' : '')
+                        a(href="/") Members
+
+                    if !user
+                        li(class=(title === 'Register') ? 'active' : '')
+                            a(href="/users/register") Register
+                        li(class=(title === 'Login') ? 'active' : '')
+                            a(href="/users/login") Log In
+                if user
+                    ul.nav.navbar-nav
+                        li
+                            a(href="/users/logout") Logout
+
+        != messages()
+        block content
+
+
+        footer
+            p.text-center &copy; 2020 MJ
+
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
+        script(src="/javascripts/bootstrap.min.js")
+
